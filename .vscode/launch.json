@@ -6,15 +6,15 @@
     "configurations": [
         
 
-        {
-            "name": "Echotest",
-            // "type": "python",
-            // "type": "shell",
-            "type": "f5anything",
-            "request": "launch",
-            "preLaunchTask": "echotest", // The name of the task defined above
-            // ...
-        },
+        // {
+        //     "name": "Echotest",
+        //     // "type": "python",
+        //     // "type": "shell",
+        //     "type": "f5anything",
+        //     "request": "launch",
+        //     "preLaunchTask": "echotest", // The name of the task defined above
+        //     // ...
+        // },
 
         // {
         //     "name": "Love2D run /SRC",
@@ -28,13 +28,13 @@
 
 
         {
-            "name": "run /SRC",
+            "name": "Source",
             "type": "f5anything",
             "request": "launch",
             "command": "love ./SRC", // Could be any other shell command
         },
         {
-            "name": "run BUILD/.love",
+            "name": "lovefile",
             "type": "f5anything",
             "request": "launch",
             "preLaunchTask": "Build all", // The name of the task defined above
@@ -50,7 +50,7 @@
         //     "command": "./BUILD/game.love", // Could be any other shell command
         // },
         {
-            "name": "run BUILD/win",
+            "name": "WinBuild",
             "type": "f5anything",
             "request": "launch",
             "preLaunchTask": "Build all", // The name of the task defined above
