@@ -1,0 +1,24 @@
+{
+    // https://stackoverflow.com/questions/43836861/how-to-run-a-command-in-visual-studio-code-with-launch-json
+    // https://code.visualstudio.com/docs/editor/tasks
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echotest",
+            "command": "echo", // Could be any other shell command
+            "args": ["test"],
+            "type": "shell"
+        },
+        {
+            "label": "love run SRC",
+            "command": "love", // Could be any other shell command
+            "args": ["./SRC"],
+            "type": "shell"
+        },
+        {
+            "label": "Build all",
+            "command": "./compile_script.sh", // Could be any other shell command
+            "type": "shell"
+        }
+    ]
+}

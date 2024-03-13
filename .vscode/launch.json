@@ -1,0 +1,62 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+
+        {
+            "name": "Echotest",
+            // "type": "python",
+            // "type": "shell",
+            "type": "f5anything",
+            "request": "launch",
+            "preLaunchTask": "echotest", // The name of the task defined above
+            // ...
+        },
+
+        // {
+        //     "name": "Love2D run /SRC",
+        //     // "type": "python",
+        //     // "type": "shell",
+        //     "type": "f5anything",
+        //     "request": "launch",
+        //     "preLaunchTask": "love run SRC", // The name of the task defined above
+        //     // ...
+        // },
+
+
+        {
+            "name": "run /SRC",
+            "type": "f5anything",
+            "request": "launch",
+            "command": "love ./SRC", // Could be any other shell command
+        },
+        {
+            "name": "run BUILD/.love",
+            "type": "f5anything",
+            "request": "launch",
+            "preLaunchTask": "Build all", // The name of the task defined above
+            // "command": "love ./BUILD/game.love", // Could be any other shell command
+            "command": "love ./BUILD/game.love", // Could be any other shell command
+        },
+        // {
+        //     "name": "run BUILD/.love direct",
+        //     "type": "f5anything",
+        //     "request": "launch",
+        //     "preLaunchTask": "Build all", // The name of the task defined above
+        //     // "command": "love ./BUILD/game.love", // Could be any other shell command
+        //     "command": "./BUILD/game.love", // Could be any other shell command
+        // },
+        {
+            "name": "run BUILD/win",
+            "type": "f5anything",
+            "request": "launch",
+            "preLaunchTask": "Build all", // The name of the task defined above
+            "command": "wine ./BUILD/Win/SuperGame.exe", // Could be any other shell command
+        },
+
+
+    ]
+}
