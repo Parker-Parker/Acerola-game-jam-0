@@ -9,23 +9,40 @@
             "name": "Source",
             "type": "f5anything",
             "request": "launch",
-            "command": "love ./SRC", // Could be any other shell command
+            "command": "love ${workspaceFolder}/SRC", // Could be any other shell command
         },
         {
             "name": ".love file",
             "type": "f5anything",
             "request": "launch",
             "preLaunchTask": "Build all", // The name of the task defined above
-            "command": "love ./BUILD/game.love", // Could be any other shell command
+            "command": "love ${workspaceFolder}/BUILD/game.love", // Could be any other shell command
         },
         {
             "name": "WinBuild",
             "type": "f5anything",
             "request": "launch",
             "preLaunchTask": "Build all", // The name of the task defined above
-            "command": "wine ./BUILD/Win/SuperGame.exe", // Could be any other shell command
+            "command": "wine ${workspaceFolder}/BUILD/Win/SuperGame.exe", // Could be any other shell command
         },
-
+        // {
+        //     "name": "Lua CurrentFile",
+        //     "type": "lua",
+        //     "request": "launch",
+        //     // "preLaunchTask": "Build all", // The name of the task defined above
+        //     // "command": "wine ${workspaceFolder}/BUILD/Win/SuperGame.exe", // Could be any other shell command
+        // },
+        {
+            "name": "lua CurrentFile",
+            "type": "lua",
+            "request": "launch",
+            "program": "${file}",
+            "stopOnEntry": false,
+            "cwd": "${workspaceFolder}/SRC/",
+            // "purpose":["debug-in-terminal"],
+            "path": "${workspaceFolder}/SRC/?.lua",
+            "stopOnThreadEntry": false,
+        }
 
     ]
 }
