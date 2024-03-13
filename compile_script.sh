@@ -5,6 +5,7 @@
 # zip -r ./BUILD/game.zip ./SRC/*
   
 cd ./SRC; zip -r ../BUILD/game.love ./* ; cd .. 
+# chmod +x ./BUILD/game.love
 # cd ./SRC; zip -r ../BUILD/game.zip ./*  ; cd ..
 echo "cleaning win"; cd ./BUILD/Win;ls; rm ./*; rm -r ./*; cd ../..
 echo "Extracting win";unzip -j ./BUILD/love-11.5-win64.zip  -d ./BUILD/Win
