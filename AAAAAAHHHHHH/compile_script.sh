@@ -1,0 +1,1 @@
+zip -r ../BUILD\?/game.zip ../SRC\?\?/*
