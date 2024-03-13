@@ -10,12 +10,13 @@
             "type": "f5anything",
             "request": "launch",
             "command": "love ${workspaceFolder}/SRC", // Could be any other shell command
+            "preLaunchTask": "Close all instances" // The name of the task defined above
         },
         {
             "name": ".love file",
             "type": "f5anything",
             "request": "launch",
-            "preLaunchTask": "Build all", // The name of the task defined above
+            "preLaunchTask": "Close and Build", // The name of the task defined above
             "command": "love ${workspaceFolder}/BUILD/game.love", // Could be any other shell command
         },
         {

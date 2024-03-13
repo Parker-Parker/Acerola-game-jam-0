@@ -19,6 +19,19 @@
             "label": "Build all",
             "command": "./compile_script.sh", // Could be any other shell command
             "type": "shell"
+        },
+        {
+            "label": "Close all instances",
+            "command": "for pid in $(ps -ef | grep \"love\" | awk '{print $2}'); do kill -9 $pid; done", // Could be any other shell command
+            "type": "shell"
+        },
+        {
+            "label": "Close and Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Close all instances",
+                "Build all"
+            ]
         }
     ]
 }
