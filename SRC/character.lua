@@ -8,9 +8,19 @@ Character = {}
 -- Character.i = {}
 -- Character.v = {}
 Character.vertTable = {  10, 0,
-                         -40, 15,
-                         -40, -15,
+                        -30, 12,
+                        -40, 8,
+                        -30, 4,
+
+                        -30, -4,
+                        -40, -8,
+                        -30, -12,
+
                         }
+-- Character.vertTable = {  10, 0,
+--                          -40, 15,
+--                          -40, -15,
+--                         }
                         
 Character.vertTableRotated = Character.vertTable
 Character.vertTableTransformed = Character.vertTableRotated
