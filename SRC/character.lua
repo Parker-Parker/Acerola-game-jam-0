@@ -31,9 +31,21 @@ Character.y = 400
 Character.theta = 0
 
 Character.instances = {
-                        {Color = {1,0,0,1}, x=400, y=400, theta = 0, bend = 1.1, vertTable=Character.vertTable },
-                        {Color = {0,1,0,1}, x=400, y=400, theta = 0, bend = 1.2, vertTable=Character.vertTable },
-                        {Color = {0,0,1,1}, x=400, y=400, theta = 0, bend = 1.3, vertTable=Character.vertTable },
+    {Color = {   .5,    0,    0,    1}, x=400, y=400, theta = 0, bend = 1.05, vertTable=Character.vertTable },
+    {Color = {  .25,  .25,    0,    1}, x=400, y=400, theta = 0, bend = 1.10, vertTable=Character.vertTable },
+    {Color = {    0,   .5,    0,    1}, x=400, y=400, theta = 0, bend = 1.15, vertTable=Character.vertTable },
+    {Color = {    0,  .25,  .25,    1}, x=400, y=400, theta = 0, bend = 1.20, vertTable=Character.vertTable },
+    {Color = {    0,    0,   .5,    1}, x=400, y=400, theta = 0, bend = 1.25, vertTable=Character.vertTable },
+    {Color = {  .25,    0,  .25,    1}, x=400, y=400, theta = 0, bend = 1.30, vertTable=Character.vertTable },
+
+
+
+    -- {Color = {   .5,    0,    0,    1}, x=400, y=400, theta = 0, bend = 1.05, vertTable=Character.vertTable },
+    -- {Color = {  .35,  .35,    0,    1}, x=400, y=400, theta = 0, bend = 1.10, vertTable=Character.vertTable },
+    -- {Color = {    0,   .5,    0,    1}, x=400, y=400, theta = 0, bend = 1.15, vertTable=Character.vertTable },
+    -- {Color = {    0,  .35,  .35,    1}, x=400, y=400, theta = 0, bend = 1.20, vertTable=Character.vertTable },
+    -- {Color = {    0,    0,   .5,    1}, x=400, y=400, theta = 0, bend = 1.25, vertTable=Character.vertTable },
+    -- {Color = {  .35,    0,  .35,    1}, x=400, y=400, theta = 0, bend = 1.30, vertTable=Character.vertTable },
 
 }
 

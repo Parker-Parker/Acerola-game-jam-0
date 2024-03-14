@@ -41,13 +41,15 @@ function love.draw()
     love.graphics.setBlendMode("alpha")
 
     love.graphics.print("Hello World", 400, 300)
+    love.graphics.print("Use WASD or arrow keys to steer", 000, 15)
+    love.graphics.print("Press Space to desync", 000, 00)
     love.graphics.print(Looptime, 400, 400)
     love.graphics.print("Framerate: " .. Framerate, 650, 20)
     love.graphics.print("Steer:" .. steerMode.." Boost:"..accelMode, 650, 50)
 
 
     -- Character:draw()
-    Character:drawLine()
+    -- Character:drawLine()
     drawPlayer()
     
     love.graphics.setCanvas()
