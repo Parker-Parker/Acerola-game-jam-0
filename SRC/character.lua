@@ -21,9 +21,9 @@ Character.y = 400
 Character.theta = 0
 
 Character.instances = {
-                        {Color = {1,0,0,1}, x=410, y=400, theta = 0, bend = 1.1, vertTable=Character.vertTable },
+                        {Color = {1,0,0,1}, x=400, y=400, theta = 0, bend = 1.1, vertTable=Character.vertTable },
                         {Color = {0,1,0,1}, x=400, y=400, theta = 0, bend = 1.2, vertTable=Character.vertTable },
-                        {Color = {0,0,1,1}, x=400, y=420, theta = 0, bend = 1.3, vertTable=Character.vertTable },
+                        {Color = {0,0,1,1}, x=400, y=400, theta = 0, bend = 1.3, vertTable=Character.vertTable },
 
 }
 
@@ -220,6 +220,17 @@ function Character:moveRelInstances(dt, accel, steer)
 
     for key, instance in pairs(self.instances) do
         Character.moveRel(instance, dt, accel, steer)
+    end
+
+
+
+end
+
+
+function Character:testDivergeInstances() 
+
+    for key, instance in pairs(self.instances) do
+        instance.theta = instance.theta + (instance.bend-1.0)*3
     end
 
 

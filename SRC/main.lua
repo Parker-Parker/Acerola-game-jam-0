@@ -90,3 +90,14 @@ function love.update(dt)
         Framerate_lasttime = 0
     end
 end
+
+
+function love.keypressed( key, scancode, isrepeat )
+    if (key == "space") and not isrepeat then
+        Character:testDivergeInstances()
+    end
+    
+end
+
+
+
