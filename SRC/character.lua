@@ -230,7 +230,7 @@ end
 function Character:testDivergeInstances() 
 
     for key, instance in pairs(self.instances) do
-        instance.theta = instance.theta + (instance.bend-1.0)*3
+        instance.theta = instance.theta + (instance.bend-1.0)*1
     end
 
 
