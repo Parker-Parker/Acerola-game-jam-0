@@ -19,7 +19,7 @@ function love.load()
 
     Looptime = 0
     
-    Character:moveAbs(400,400)
+    -- Character:moveAbs(400,400)
     
 end
 
@@ -29,7 +29,8 @@ function drawPlayer()
     -- love.graphics.setBlendMode("alpha")
     -- love.graphics.setBlendMode("add")
     love.graphics.setBlendMode("add", "premultiplied")
-    Character:draw()
+    -- Character:draw()
+    Character:drawInstances()
 
 end
 

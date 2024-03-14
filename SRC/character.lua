@@ -16,9 +16,16 @@ Character.vertTableRotated = Character.vertTable
 Character.vertTableTransformed = Character.vertTableRotated
 
 
-Character.x = 0
-Character.y = 0
+Character.x = 400
+Character.y = 400
 Character.theta = 0
+
+Character.instances = {
+                        {Color = {1,0,0,1}, x=410, y=400, theta = 0, bend = 1.1, vertTable=Character.vertTable },
+                        {Color = {0,1,0,1}, x=400, y=400, theta = 0, bend = 1.2, vertTable=Character.vertTable },
+                        {Color = {0,0,1,1}, x=400, y=420, theta = 0, bend = 1.3, vertTable=Character.vertTable },
+
+}
 
 -- Character.accelEnum = {IDLE = 0, BOOST = 1}
 -- Character.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
@@ -68,15 +75,15 @@ function Character:tfRot()
     -- for key, value in pairs(Character.vertTableRotated) do
     --     print("TFrot key:" , key , " val:" , value)
     -- end
-    Character.vertTableRotated = {}
+    self.vertTableRotated = {}
 
 
     local xlast = nil
-    for index, value in ipairs(Character.vertTable) do
+    for index, value in ipairs(self.vertTable) do
         if xlast then
-            local newx, newy = rotate(xlast,value,Character.theta)
-            Character.vertTableRotated[index-1] = newx
-            Character.vertTableRotated[index]   = newy
+            local newx, newy = rotate(xlast,value,self.theta)
+            self.vertTableRotated[index-1] = newx
+            self.vertTableRotated[index]   = newy
             xlast = nil
         else 
             xlast = value
@@ -89,16 +96,16 @@ function Character:tfRot()
 end
 
 function Character:tfTra()
-    Character.vertTableTransformed = {}
+    self.vertTableTransformed = {}
 
 
     local xlast = false
-    for index, value in ipairs(Character.vertTableRotated) do
+    for index, value in ipairs(self.vertTableRotated) do
         if xlast then
-            Character.vertTableTransformed[index] = value + Character.y
+            self.vertTableTransformed[index] = value + self.y
             xlast = false
         else 
-            Character.vertTableTransformed[index] = value + Character.x
+            self.vertTableTransformed[index] = value + self.x
             xlast = true
         end 
         
@@ -111,6 +118,13 @@ end
 function Character:tf()
     self:tfRot()
     self:tfTra()
+    -- self.x
+end
+
+
+function Character:tfSafe()
+    Character.tfRot(self)
+    Character.tfTra(self)
     -- self.x
 end
 
@@ -139,6 +153,20 @@ function Character:draw()
     love.graphics.polygon("fill", self.vertTableTransformed)
 
     Character.y = Character.y-10
+
+    
+end
+
+function Character:drawInstances()
+
+    for key, instance in pairs(self.instances) do
+
+        love.graphics.setColor(instance.Color)
+        Character.tfSafe(instance)
+        love.graphics.polygon("fill", instance.vertTableTransformed)
+    end
+
+
 
     
 end
@@ -187,3 +215,34 @@ function Character:moveRel(dt, accel, steer)
     Character.y = newY
 
 end
+
+-- function Character:moveRel(dt, accel, steer) 
+--     local cX = math.cos(Character.theta)
+--     local cY = math.sin(Character.theta)
+--     local newX = Character.x  + dt*Character.speed*cX -- + accel_factor  -- TODO: fix dt
+--     local newY = Character.y  + dt*Character.speed*cY -- + accel_factor  -- TODO: fix dt  
+
+--     if accel == Character.accelEnum.BOOST then
+--         Character.speed = Character.speed +Character.accelRate*dt -- TODO: fix dt
+--         if Character.speed > Character.maxSpeed then
+--             Character.speed = Character.maxSpeed
+--         end
+--     else
+--         Character.speed = Character.speed -Character.decelRate*dt -- TODO: fix dt
+--         if Character.speed < Character.minSpeed then
+--             Character.speed = Character.minSpeed
+--         end
+--     end
+
+--     if steer == Character.steerEnum.LEFT then
+--         Character.theta = Character.theta - Character.turnRate*dt -- TODO: fix dt
+--     elseif steer == Character.steerEnum.RIGHT then
+--         Character.theta = Character.theta + Character.turnRate*dt -- TODO: fix dt
+--     end
+
+--     Character:collisionManager(Character.x,Character.y,
+--                                 newX,       newY)
+--     Character.x = newX
+--     Character.y = newY
+
+-- end
