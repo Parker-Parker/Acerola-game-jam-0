@@ -20,14 +20,23 @@ Character.x = 0
 Character.y = 0
 Character.theta = 0
 
+-- Character.accelEnum = {IDLE = 0, BOOST = 1}
+-- Character.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
+-- Character.minSpeed = 10
+-- Character.maxSpeed = 800
+-- Character.accelRate = 300
+-- Character.decelRate = 80
+-- Character.brakeRate = 30
+-- Character.turnRate = 2
+
 Character.accelEnum = {IDLE = 0, BOOST = 1}
 Character.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
-Character.minSpeed = 10
+Character.minSpeed = 150
 Character.maxSpeed = 800
-Character.accelRate = 300
-Character.decelRate = 80
+Character.accelRate = 600
+Character.decelRate = 120
 Character.brakeRate = 30
-Character.turnRate = 2
+Character.turnRate = 6
 
 
 Character.speed = Character.minSpeed
