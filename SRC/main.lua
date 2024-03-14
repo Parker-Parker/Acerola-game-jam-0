@@ -76,6 +76,7 @@ function love.update(dt)
 
 
     Character:moveRel(dt,accelMode,steerMode)
+    Character:moveRelInstances(dt,accelMode,steerMode)
 
 
     if Looptime - Framerate_lasttime > 1 then

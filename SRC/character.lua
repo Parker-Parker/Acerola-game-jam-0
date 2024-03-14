@@ -186,10 +186,10 @@ function Character:collisionManager(x0,y0,x1,y1)
 end
 
 function Character:moveRel(dt, accel, steer) 
-    local cX = math.cos(Character.theta)
-    local cY = math.sin(Character.theta)
-    local newX = Character.x  + dt*Character.speed*cX -- + accel_factor  -- TODO: fix dt
-    local newY = Character.y  + dt*Character.speed*cY -- + accel_factor  -- TODO: fix dt  
+    local cX = math.cos(self.theta)
+    local cY = math.sin(self.theta)
+    local newX = self.x  + dt*Character.speed*cX -- + accel_factor  -- TODO: fix dt
+    local newY = self.y  + dt*Character.speed*cY -- + accel_factor  -- TODO: fix dt  
 
     if accel == Character.accelEnum.BOOST then
         Character.speed = Character.speed +Character.accelRate*dt -- TODO: fix dt
@@ -204,45 +204,24 @@ function Character:moveRel(dt, accel, steer)
     end
 
     if steer == Character.steerEnum.LEFT then
-        Character.theta = Character.theta - Character.turnRate*dt -- TODO: fix dt
+        self.theta = self.theta - Character.turnRate*dt -- TODO: fix dt
     elseif steer == Character.steerEnum.RIGHT then
-        Character.theta = Character.theta + Character.turnRate*dt -- TODO: fix dt
+        self.theta = self.theta + Character.turnRate*dt -- TODO: fix dt
     end
 
-    Character:collisionManager(Character.x,Character.y,
+    Character:collisionManager(self.x,self.y,
                                 newX,       newY)
-    Character.x = newX
-    Character.y = newY
+    self.x = newX
+    self.y = newY
 
 end
 
--- function Character:moveRel(dt, accel, steer) 
---     local cX = math.cos(Character.theta)
---     local cY = math.sin(Character.theta)
---     local newX = Character.x  + dt*Character.speed*cX -- + accel_factor  -- TODO: fix dt
---     local newY = Character.y  + dt*Character.speed*cY -- + accel_factor  -- TODO: fix dt  
+function Character:moveRelInstances(dt, accel, steer) 
 
---     if accel == Character.accelEnum.BOOST then
---         Character.speed = Character.speed +Character.accelRate*dt -- TODO: fix dt
---         if Character.speed > Character.maxSpeed then
---             Character.speed = Character.maxSpeed
---         end
---     else
---         Character.speed = Character.speed -Character.decelRate*dt -- TODO: fix dt
---         if Character.speed < Character.minSpeed then
---             Character.speed = Character.minSpeed
---         end
---     end
+    for key, instance in pairs(self.instances) do
+        Character.moveRel(instance, dt, accel, steer)
+    end
 
---     if steer == Character.steerEnum.LEFT then
---         Character.theta = Character.theta - Character.turnRate*dt -- TODO: fix dt
---     elseif steer == Character.steerEnum.RIGHT then
---         Character.theta = Character.theta + Character.turnRate*dt -- TODO: fix dt
---     end
 
---     Character:collisionManager(Character.x,Character.y,
---                                 newX,       newY)
---     Character.x = newX
---     Character.y = newY
 
--- end
+end
