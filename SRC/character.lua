@@ -108,11 +108,20 @@ end
 
 
 function Character:draw()
-    love.graphics.setColor(1,1,1)
+    love.graphics.setColor(1,1,1,1)
     -- love.graphics.setColor(255,255,255)
     -- love.graphics.polygon(love.graphics.DrawMode.fill, self.vertTableTransformed)
     self:tf()
     love.graphics.polygon("fill", self.vertTableTransformed)
+    -- self.x
+end
+
+function Character:drawLine()
+    love.graphics.setColor(1,1,1,1)
+    -- love.graphics.setColor(255,255,255)
+    -- love.graphics.polygon(love.graphics.DrawMode.fill, self.vertTableTransformed)
+    self:tf()
+    love.graphics.polygon("line", self.vertTableTransformed)
     -- self.x
 end
 

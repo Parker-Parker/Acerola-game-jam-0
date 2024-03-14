@@ -3,27 +3,60 @@ require("test")
 require("character")
 
 -- Character.
+function love.load()
+    Frames = 0
+    Framerate = 0
+    Framerate_lasttime = 0
+    
+    accelMode = 0
+    steerMode = 0
+    width, height = love.graphics.getDimensions( )
+    
+    playerCanvas = love.graphics.newCanvas(width,height)
+    lensesCanvas = love.graphics.newCanvas(width,height)
+    mirrorCanvas = love.graphics.newCanvas(width,height)
 
-Frames = 0
-Framerate = 0
-Framerate_lasttime = 0
 
-accelMode = 0
-steerMode = 0
+    Looptime = 0
+    
+    Character:moveAbs(400,400)
+    
+end
+
+function drawPlayer()
+    love.graphics.setCanvas(playerCanvas)
+    love.graphics.clear(0, 0, 0, 0)
+    -- love.graphics.setBlendMode("alpha")
+    -- love.graphics.setBlendMode("add")
+    love.graphics.setBlendMode("add", "premultiplied")
+    Character:draw()
+
+end
+
 
 function love.draw()
+    love.graphics.setCanvas()
+    love.graphics.clear(0, 0, 0, 1)
+    love.graphics.setBlendMode("alpha")
+
     love.graphics.print("Hello World", 400, 300)
     love.graphics.print(Looptime, 400, 400)
     love.graphics.print("Framerate: " .. Framerate, 650, 20)
     love.graphics.print("Steer:" .. steerMode.." Boost:"..accelMode, 650, 50)
 
-    Character:draw()
+
+    -- Character:draw()
+    Character:drawLine()
+    drawPlayer()
+    
+    love.graphics.setCanvas()
+    -- love.graphics.setBlendMode("alpha")
+    love.graphics.setBlendMode("alpha", "premultiplied")
+    love.graphics.setColor(1, 1, 1, 1)
+    love.graphics.draw(playerCanvas,0,0)
+    
     Frames = Frames + 1
 end
-
-Looptime = 0
-
-Character:moveAbs(400,400)
 
 function love.update(dt)
     Looptime = Looptime + dt
