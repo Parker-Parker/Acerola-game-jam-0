@@ -12,3 +12,4 @@ echo "Extracting win";unzip -j ./BUILD/love-11.5-win64.zip  -d ./BUILD/Win
 echo "Compiling win";cat ./BUILD/Win/love.exe ./BUILD/game.love > ./BUILD/Win/SuperGame.exe
 chmod +x ./BUILD/Win/SuperGame.exe
 
+cd ./BUILD/Win/; zip -rj ../SuperGameWin.zip ./* ; cd ../.. 
