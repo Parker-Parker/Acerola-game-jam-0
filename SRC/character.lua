@@ -49,26 +49,29 @@ Character.instances = {
 
 }
 
--- Character.accelEnum = {IDLE = 0, BOOST = 1}
--- Character.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
--- Character.minSpeed = 10
--- Character.maxSpeed = 800
--- Character.accelRate = 300
--- Character.decelRate = 80
--- Character.brakeRate = 30
--- Character.turnRate = 2
+-- Character.controlModes.jet.accelEnum = {IDLE = 0, BOOST = 1}
+-- Character.controlModes.jet.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
+-- Character.controlModes.jet.minSpeed = 10
+-- Character.controlModes.jet.maxSpeed = 800
+-- Character.controlModes.jet.accelRate = 300
+-- Character.controlModes.jet.decelRate = 80
+-- Character.controlModes.jet.brakeRate = 30
+-- Character.controlModes.jet.turnRate = 2
 
-Character.accelEnum = {IDLE = 0, BOOST = 1}
-Character.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
-Character.minSpeed = 150
-Character.maxSpeed = 800
-Character.accelRate = 600
-Character.decelRate = 120
-Character.brakeRate = 30
-Character.turnRate = 6
+Character.controlModes = {}
+Character.controlModes.jet = {}
+
+Character.controlModes.jet.accelEnum = {IDLE = 0, BOOST = 1}
+Character.controlModes.jet.steerEnum = {IDLE = 0, RIGHT = 1, LEFT = 2}
+Character.controlModes.jet.minSpeed = 150
+Character.controlModes.jet.maxSpeed = 800
+Character.controlModes.jet.accelRate = 600
+Character.controlModes.jet.decelRate = 120
+Character.controlModes.jet.brakeRate = 30
+Character.controlModes.jet.turnRate = 6
 
 
-Character.speed = Character.minSpeed
+Character.speed = Character.controlModes.jet.minSpeed
 
 
 function Character:moveAbs(newX, newY)
@@ -213,22 +216,22 @@ function Character:moveRel(dt, accel, steer)
     local newX = self.x  + dt*Character.speed*cX -- + accel_factor  -- TODO: fix dt
     local newY = self.y  + dt*Character.speed*cY -- + accel_factor  -- TODO: fix dt  
 
-    if accel == Character.accelEnum.BOOST then
-        Character.speed = Character.speed +Character.accelRate*dt -- TODO: fix dt
-        if Character.speed > Character.maxSpeed then
-            Character.speed = Character.maxSpeed
+    if accel == Character.controlModes.jet.accelEnum.BOOST then
+        Character.speed = Character.speed +Character.controlModes.jet.accelRate*dt -- TODO: fix dt
+        if Character.speed > Character.controlModes.jet.maxSpeed then
+            Character.speed = Character.controlModes.jet.maxSpeed
         end
     else
-        Character.speed = Character.speed -Character.decelRate*dt -- TODO: fix dt
-        if Character.speed < Character.minSpeed then
-            Character.speed = Character.minSpeed
+        Character.speed = Character.speed -Character.controlModes.jet.decelRate*dt -- TODO: fix dt
+        if Character.speed < Character.controlModes.jet.minSpeed then
+            Character.speed = Character.controlModes.jet.minSpeed
         end
     end
 
-    if steer == Character.steerEnum.LEFT then
-        self.theta = self.theta - Character.turnRate*dt -- TODO: fix dt
-    elseif steer == Character.steerEnum.RIGHT then
-        self.theta = self.theta + Character.turnRate*dt -- TODO: fix dt
+    if steer == Character.controlModes.jet.steerEnum.LEFT then
+        self.theta = self.theta - Character.controlModes.jet.turnRate*dt -- TODO: fix dt
+    elseif steer == Character.controlModes.jet.steerEnum.RIGHT then
+        self.theta = self.theta + Character.controlModes.jet.turnRate*dt -- TODO: fix dt
     end
 
     Character:collisionManager(self.x,self.y,

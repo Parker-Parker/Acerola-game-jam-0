@@ -68,13 +68,13 @@ function love.update(dt)
     -- Character:moveAbsIfMin(mousex, mousey, 10)
 
     accelMode = (love.keyboard.isDown("w") or love.keyboard.isDown("up") ) and
-                            Character.accelEnum.BOOST or Character.accelEnum.IDLE
+                            Character.controlModes.jet.accelEnum.BOOST or Character.controlModes.jet.accelEnum.IDLE
 
     local right = love.keyboard.isDown("d") or love.keyboard.isDown("right")
     local left = love.keyboard.isDown("a") or love.keyboard.isDown("left")
 
-    steerMode = (left == right)  and Character.steerEnum.IDLE or 
-                            left and Character.steerEnum.LEFT or Character.steerEnum.RIGHT
+    steerMode = (left == right)  and Character.controlModes.jet.steerEnum.IDLE or 
+                            left and Character.controlModes.jet.steerEnum.LEFT or Character.controlModes.jet.steerEnum.RIGHT
 
 
     Character:moveRel(dt,accelMode,steerMode)
