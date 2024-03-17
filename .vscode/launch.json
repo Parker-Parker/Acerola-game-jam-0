@@ -5,26 +5,55 @@
     "version": "0.2.0",
     "configurations": [
 
+        // {
+        //     "name": "Love2D: Source",
+        //     "type": "f5anything",
+        //     "request": "launch",
+        //     "command": "love ${workspaceFolder}/SRC", // Could be any other shell command
+        //     "preLaunchTask": "Love2D: Close all instances" // The name of the task defined above
+        // },
         {
             "name": "Love2D: Source",
-            "type": "f5anything",
+            "type": "lua-local",
             "request": "launch",
-            "command": "love ${workspaceFolder}/SRC", // Could be any other shell command
-            "preLaunchTask": "Love2D: Close all instances" // The name of the task defined above
+            "preLaunchTask": "Love2D: Close all instances", // The name of the task defined above
+            "program":  {"command": "love"},
+            "args": ["${workspaceFolder}/SRC"],
+            "scriptRoots": ["${workspaceFolder}/SRC"]
         },
+
+
         {
             "name": "Love2D: .love file",
-            "type": "f5anything",
+            "type": "lua-local",
             "request": "launch",
             "preLaunchTask": "Love2D: Close and Build", // The name of the task defined above
-            "command": "love ${workspaceFolder}/BUILD/game.love", // Could be any other shell command
+            "program":  {"command": "love"},
+            "args": ["${workspaceFolder}/BUILD/game.love"],
+            "scriptRoots": ["${workspaceFolder}/SRC"]
         },
+        // {
+        //     "name": "Love2D: .love file",
+        //     "type": "f5anything",
+        //     "request": "launch",
+        //     "preLaunchTask": "Love2D: Close and Build", // The name of the task defined above
+        //     "command": "love ${workspaceFolder}/BUILD/game.love", // Could be any other shell command
+        // },
+        // {
+        //     "name": "Love2D: WinBuild",
+        //     "type": "f5anything",
+        //     "request": "launch",
+        //     "preLaunchTask": "Love2D: Build all", // The name of the task defined above
+        //     "command": "wine ${workspaceFolder}/BUILD/Win/SuperGame.exe", // Could be any other shell command
+        // },
         {
             "name": "Love2D: WinBuild",
-            "type": "f5anything",
+            "type": "lua-local",
             "request": "launch",
             "preLaunchTask": "Love2D: Build all", // The name of the task defined above
-            "command": "wine ${workspaceFolder}/BUILD/Win/SuperGame.exe", // Could be any other shell command
+            "program":  {"command": "wine"},
+            "args": ["${workspaceFolder}/BUILD/Win/SuperGame.exe"],
+            "scriptRoots": ["${workspaceFolder}/SRC"]
         },
         // {
         //     "name": "Lua CurrentFile",
