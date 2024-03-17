@@ -4,34 +4,38 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "echotest",
-            "command": "echo", // Could be any other shell command
-            "args": ["test"],
-            "type": "shell"
-        },
-        {
-            "label": "love run SRC",
+            "label": "Love2D: love run SRC",
             "command": "love", // Could be any other shell command
             "args": ["./SRC"],
-            "type": "shell"
+            "type": "shell",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
         },
         {
-            "label": "Build all",
+            "label": "Love2D: Build all",
             "command": "./compile_script.sh", // Could be any other shell command
-            "type": "shell"
+            "type": "shell",
+            "group": "build"
         },
         {
-            "label": "Close all instances",
+            "label": "Love2D: Close all instances",
             "command": "for pid in $(ps -ef | grep \"love\" | awk '{print $2}'); do kill -9 $pid; done", // Could be any other shell command
-            "type": "shell"
+            "type": "shell",
+            "group": "test"
         },
         {
-            "label": "Close and Build",
+            "label": "Love2D: Close and Build",
             "dependsOrder": "sequence",
             "dependsOn": [
-                "Close all instances",
-                "Build all"
-            ]
+                "Love2D: Close all instances",
+                "Love2D: Build all"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         }
     ]
 }

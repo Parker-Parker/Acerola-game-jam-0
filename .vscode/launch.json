@@ -6,24 +6,24 @@
     "configurations": [
 
         {
-            "name": "Source",
+            "name": "Love2D: Source",
             "type": "f5anything",
             "request": "launch",
             "command": "love ${workspaceFolder}/SRC", // Could be any other shell command
-            "preLaunchTask": "Close all instances" // The name of the task defined above
+            "preLaunchTask": "Love2D: Close all instances" // The name of the task defined above
         },
         {
-            "name": ".love file",
+            "name": "Love2D: .love file",
             "type": "f5anything",
             "request": "launch",
-            "preLaunchTask": "Close and Build", // The name of the task defined above
+            "preLaunchTask": "Love2D: Close and Build", // The name of the task defined above
             "command": "love ${workspaceFolder}/BUILD/game.love", // Could be any other shell command
         },
         {
-            "name": "WinBuild",
+            "name": "Love2D: WinBuild",
             "type": "f5anything",
             "request": "launch",
-            "preLaunchTask": "Build all", // The name of the task defined above
+            "preLaunchTask": "Love2D: Build all", // The name of the task defined above
             "command": "wine ${workspaceFolder}/BUILD/Win/SuperGame.exe", // Could be any other shell command
         },
         // {
@@ -34,7 +34,7 @@
         //     // "command": "wine ${workspaceFolder}/BUILD/Win/SuperGame.exe", // Could be any other shell command
         // },
         {
-            "name": "lua CurrentFile",
+            "name": "lua: CurrentFile",
             "type": "lua",
             "request": "launch",
             "program": "${file}",
