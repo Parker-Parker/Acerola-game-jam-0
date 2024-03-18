@@ -1,3 +1,4 @@
+love = love
 print("Hello Character module")
 Character = {}
 -- Character.r = {}
@@ -24,7 +25,6 @@ Character.vertTable = {  10, 0,
                         
 Character.vertTableRotated = Character.vertTable
 Character.vertTableTransformed = Character.vertTableRotated
-
 
 Character.x = 400
 Character.y = 400
