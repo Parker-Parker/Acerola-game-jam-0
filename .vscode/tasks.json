@@ -13,9 +13,15 @@
                 "isDefault": true
             },
         },
+        // {
+        //     "label": "Love2D: Build all",
+        //     "command": "./compile_script.sh", // Could be any other shell command
+        //     "type": "shell",
+        //     "group": "build"
+        // },
         {
             "label": "Love2D: Build all",
-            "command": "./compile_script.sh", // Could be any other shell command
+            "command": "python3 ./build.py", // Could be any other shell command
             "type": "shell",
             "group": "build"
         },
